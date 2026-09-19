@@ -225,7 +225,6 @@ fun SiteWebView(url:String,onClose:()->Unit){
                 Text("برای سازگاری بیشتر، با مرورگر گوشی بازش کن.")
                 Spacer(Modifier.height(12.dp))
                 Button({
-                    val context = androidx.compose.ui.platform.LocalContext.current
                     context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
                 }){Text("باز کردن با مرورگر")}
             }
