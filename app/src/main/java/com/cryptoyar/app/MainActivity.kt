@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,6 +33,7 @@ class MainActivity: ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CryptoYarApp() {
     var tab by remember { mutableIntStateOf(0) }
@@ -54,7 +56,7 @@ fun CryptoYarApp() {
     val labels=listOf("خانه","سایت‌ها","کارها","کیف پول")
     val icons=listOf(Icons.Default.Home,Icons.Default.Language,Icons.Default.Timer,Icons.Default.AccountBalanceWallet)
     Scaffold(
-        topBar={ TopAppBar(title={Text("کریپتو یار")},actions={Text("v0.2",Modifier.padding(end=16.dp))}) },
+        topBar={ TopAppBar(title={Text("کریپتو یار")},actions={Text("v0.3",Modifier.padding(end=16.dp))}) },
         bottomBar={ NavigationBar { labels.forEachIndexed { i,label ->
             NavigationBarItem(tab==i,{tab=i},{Icon(icons[i],label)},label={Text(label)})
         }}}
