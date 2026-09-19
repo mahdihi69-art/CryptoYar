@@ -197,6 +197,7 @@ fun WalletScreen(){
 
 @Composable
 fun SiteWebView(url:String,onClose:()->Unit){
+    val context = androidx.compose.ui.platform.LocalContext.current
     var loading by remember { mutableStateOf(true) }
     var failed by remember { mutableStateOf(false) }
 
@@ -206,7 +207,6 @@ fun SiteWebView(url:String,onClose:()->Unit){
             Text("سایت",Modifier.weight(1f))
             TextButton({
                 try {
-                    val context = androidx.compose.ui.platform.LocalContext.current
                     context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
                 } catch (_: Exception) {}
             }){Text("مرورگر")}
